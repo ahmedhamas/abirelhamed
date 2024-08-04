@@ -1,0 +1,194 @@
+{{ define "content" }}
+<div class="search-container">
+  <button onclick="AddForm(true)">إضافة حالة جديدة</button>
+</div>
+<form id="add" style="display: none">
+  <span
+    onclick="AddForm(false)"
+    style="
+      width: 40px;
+      height: 40px;
+      border: 1px solid;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+      cursor: pointer;
+    "
+    ><i class="bx bx-x"></i
+  ></span>
+  <div class="row">
+    <div class="col-md-4">
+      <input type="text" class="form-control" name="id" placeholder="معرف" />
+    </div>
+    <div class="col-md-4">
+      <input
+        type="text"
+        class="form-control"
+        name="case_name"
+        placeholder="اسم الحالة"
+      />
+    </div>
+    <div class="col-md-4">
+      <input
+        type="number"
+        class="form-control"
+        name="national_id"
+        placeholder="الرقم القومي"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <input
+        type="text"
+        class="form-control"
+        name="devices_needed_for_the_case"
+        placeholder="أجهزة تحتاجها الحالة"
+      />
+    </div>
+    <div class="col-md-4">
+      <input
+        type="number"
+        class="form-control"
+        name="total_income"
+        placeholder="اجمالي الدخل"
+      />
+    </div>
+    <div class="col-md-4">
+      <input
+        type="number"
+        class="form-control"
+        name="fixed_expenses"
+        placeholder="مصروفات ثابتة"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <input
+        type="number"
+        class="form-control"
+        name="pension_from_husband"
+        placeholder="معاش عن الزوج"
+      />
+    </div>
+    <div class="col-md-4">
+      <input
+        type="number"
+        class="form-control"
+        name="pension_from_father"
+        placeholder="معاش عن الأب"
+      />
+    </div>
+    <div class="col-md-4">
+      <input
+        type="text"
+        class="form-control"
+        name="debts"
+        placeholder="الديون"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <input
+        type="text"
+        class="form-control"
+        name="case_type"
+        placeholder="نوع الحالة"
+      />
+    </div>
+    <div class="col-md-4">
+      <input
+        type="datetime-local"
+        class="form-control"
+        name="date_of_birth"
+        placeholder="تاريخ الميلاد"
+      />
+    </div>
+    <div class="col-md-4">
+      <input
+        type="number"
+        class="form-control"
+        name="age"
+        placeholder="العمر"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <select name="gender" class="select">
+        <option value="" selected disabled>اختر النوع</option>
+        <option value="ذكر">ذكر</option>
+        <option value="انثى">انثى</option>
+      <select>
+    </div>
+    <div class="col-md-4">
+      <select name="social_situation" class="select">
+        <option value="" selected disabled>الحالة الاجتماعية</option>
+        <option value="متزوجة">متزوجة</option>
+        <option value="عزباء">عزباء</option>
+        <option value="مطلقة">مطلقة</option>
+        <option value="ارملة">ارملة</option>
+      <select>
+    </div>
+    <div class="col-md-4">
+      <input
+        type="text"
+        class="form-control"
+        name="address_from_national_id_card"
+        placeholder="العنوان من بطاقة الهوية"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <input
+        type="text"
+        class="form-control"
+        name="actual_address"
+        placeholder="العنوان الفعلي"
+      />
+    </div>
+    <div class="col-md-4">
+      <input
+        type="text"
+        class="form-control"
+        name="district"
+        placeholder="حي"
+      />
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>معرف</th>
+        <th>اسم الحالة</th>
+        <th>الرقم القومي</th>
+        <th>أجهزة تحتاجها الحالة</th>
+        <th>اجمالي الدخل</th>
+        <th>مصروفات ثابتة</th>
+        <th>معاش عن الزوج</th>
+        <th>معاش عن الأب</th>
+        <th>الديون</th>
+        <th>نوع الحالة</th>
+        <th>تاريخ الميلاد</th>
+        <th>العمر</th>
+        <th>النوع</th>
+        <th>الحالة الاجتماعية</th>
+        <th>العنوان من بطاقة الهوية</th>
+        <th>العنوان الفعلي</th>
+        <th>حي</th>
+        <th>تاريخ دخول الحالة</th>
+        <th>تاريخ تجديد البحث</th>
+      </tr>
+    </thead>
+    <tbody class="casesBody"></tbody>
+  </table>
+</div>
+{{ end }}
